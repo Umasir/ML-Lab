@@ -62,6 +62,24 @@ X_scaled = scale.fit_transform(X)
 
 X_train, X_test, y_train, y_test = train_test_split(X_scaled , y, test_size=0.2, random_state=42)
 
+# Initialize the linear regression model
+ model = LinearRegression()
+ # Fit the model on the training data
+ model.fit(X_train, y_train)
+
+# Predict on the test set
+ y_pred = model.predict(X_test)
+ y_pred
+
+# Calculate Mean Squared Error
+ mse = mean_squared_error(y_test, y_pred)
+ # Calculate Root Mean Squared Error (RMSE)
+ rmse = np.sqrt(mse)
+ # Calculate R-squared value
+ r2 = r2_score(y_test, y_pred)
+ print(f'Mean Squared Error: {mse}')
+ print(f'Root Mean Squared Error: {rmse}')
+ print(f'R-squared: {r2}')
 
 
 
